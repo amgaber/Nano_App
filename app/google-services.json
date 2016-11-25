@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "215911565706",
+    "firebase_url": "https://nanotourism-3a25b.firebaseio.com",
+    "project_id": "nanotourism-3a25b",
+    "storage_bucket": "nanotourism-3a25b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:215911565706:android:a7e20d8cbe252fef",
+        "android_client_info": {
+          "package_name": "com.mal.android.nanotourism"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "215911565706-9585i9e3prm2i0o7u24kfjvs8orks0a3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mal.android.nanotourism",
+            "certificate_hash": "B0CE951ACBF8C92AAB484A76F75994AA2EA32791"
+          }
+        },
+        {
+          "client_id": "215911565706-s0diokfp37jvuprg98qqea7lo0a8jlkk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC3Mwy-rx73hZ41olxphtvvadc--UfUdtQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "215911565706-s0diokfp37jvuprg98qqea7lo0a8jlkk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
