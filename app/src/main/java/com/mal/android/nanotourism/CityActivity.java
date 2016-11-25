@@ -23,8 +23,8 @@ import java.util.ArrayList;
 public class CityActivity extends AppCompatActivity{
 
     private static final String TAG = CityActivity.class.getSimpleName();
-    private static final String CITY_DESC = "CITY_DESC";
-    private static final String CITY_IMG = "CITY_IMG";
+    public static final String CITY_DESC = "CITY_DESC";
+    public static final String CITY_IMG = "CITY_IMG";
 
     private Firebase fire_ref_city;
     private RecyclerView cityrecyclerViewCity;
@@ -66,9 +66,9 @@ public class CityActivity extends AppCompatActivity{
                     Log.v("DaTABASE", "yourStringArray 2: " + child.child("name").getValue());
                     Log.v("DaTABASE", "yourStringArray 3: " + child.child("desc").getValue());
                     Log.v("DaTABASE", "yourStringArray 4: " + child.child("img").getKey());
-                    Log.v("DaTABASE", "yourStringArray for string4: " + child.child("img").child(child.child("img").getKey()).getValue());
+                    Log.v("DaTABASE", "yourStringArray for string4: " + child.child("img").child(child.getKey()).getValue());
                     //setNames of City places
-                    setDataTitles((String) child.child("name").getValue(),(String)child.child("desc").getValue());
+                    setDataTitles((String) child.child("name").getValue(),(String)child.child("desc").getValue(),(String)child.child("img").child(child.getKey()).getValue());
 
 
 
@@ -91,7 +91,7 @@ public class CityActivity extends AppCompatActivity{
         }
     }
 
-    private void setDataTitles(String name, String desc) {
+    private void setDataTitles(String name, final String desc, final String img) {
 
         //Initialize arrayList if null
         if (null == cityPlace) {
@@ -114,7 +114,8 @@ public class CityActivity extends AppCompatActivity{
 
                 Intent intent = new Intent(CityActivity.this, CityActivityDetails.class);
                 intent.putExtra(MainActivity.CITY_NAME, item);
-                intent.putExtra(CITY_DESC, item);
+                intent.putExtra(CITY_DESC, desc);
+                intent.putExtra(CITY_IMG, img);
                 startActivity(intent);
 
 
