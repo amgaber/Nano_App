@@ -60,40 +60,34 @@ public class MainActivity extends AppCompatActivity {
                 for (com.firebase.client.DataSnapshot child : dataSnapshot.getChildren()) {
 
                     cityName = child.getKey();
-//
 
-//                            theTypeIs = child.keys(myVar)[0];
-//                    setDataArray(cityName, map);
                     Log.v("DaTABASE", "DATABASE DATA: " + cityName);
-//                City data=dataSnapshot.getValue(City.class);
 
-                    List<City> tempKey2 = (List<City>) dataSnapshot.child(cityName).getValue();
-                    Log.v("DaTABASE", "DATABASE 2: " + tempKey2.get(1));
+//                    List<City> tempKey2 = (List<City>) dataSnapshot.child(cityName).getValue();
+//                    Log.v("DaTABASE", "DATABASE 2: " + tempKey2.get(1));
 
                     for (com.firebase.client.DataSnapshot children : dataSnapshot.child(cityName).getChildren()) {
                         //Here you can access the child.getKey()
 //                        City iterator=children.getChildren().iterator().next().getValue(City.class);
                         Log.v("DaTABASE", "cities : " + children.getChildren().iterator().next());
                     }
-                    ArrayList<City> c = (ArrayList<City>) dataSnapshot.child(cityName).getValue();
-                    Log.v("DaTABASE", "test : " + c.get(0));
-
-                    int x = 1;
-                    Map<Integer, City> map = new HashMap<Integer, City>();
-                    for (com.firebase.client.DataSnapshot childMap : dataSnapshot.getChildren()) {
-                        ArrayList<City> mapArray = (ArrayList<City>) dataSnapshot.child(cityName).getValue();
-                        City name = null;
-                        for (int k = 0; k < mapArray.size(); k++) {
-//                             name = mapArray.get(k);
-                            Log.v("DaTABASE", "Map : " + mapArray.get(k));
-                            map.put(x, mapArray.get(k));
-                        }
-//                        map.put(x, name);
-                        x = x + 1;
-                    }
-                    Log.v("DaTABASE", "Map data : " + map.values());
-                    Collection cost = map.values();
-                    Log.v("DaTABASE", "Collection data : " + cost.iterator().next());
+//                    ArrayList<City> c = (ArrayList<City>) dataSnapshot.child(cityName).getValue();
+//                    Log.v("DaTABASE", "test : " + c.get(0));
+//
+//                    int x = 1;
+//                    Map<Integer, City> map = new HashMap<Integer, City>();
+//                    for (com.firebase.client.DataSnapshot childMap : dataSnapshot.getChildren()) {
+//                        ArrayList<City> mapArray = (ArrayList<City>) dataSnapshot.child(cityName).getValue();
+//                        City name = null;
+//                        for (int k = 0; k < mapArray.size(); k++) {
+//                            Log.v("DaTABASE", "Map : " + mapArray.get(k));
+//                            map.put(x, mapArray.get(k));
+//                        }
+//                        x = x + 1;
+//                    }
+//                    Log.v("DaTABASE", "Map data : " + map.values());
+//                    Collection cost = map.values();
+//                    Log.v("DaTABASE", "Collection data : " + cost.iterator().next());
                     setDataArray(cityName);
                 }
             }

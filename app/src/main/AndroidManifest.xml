@@ -21,7 +21,11 @@
         <activity android:name=".MainActivity"
             android:label="@string/title_activity_main">
         </activity>
-        <activity android:name=".CityActivity">
+        <activity android:name=".CityActivity"
+            android:label="@string/title_activity_city">
+        </activity>
+        <activity android:name=".CityActivityDetails"
+            android:label="@string/title_activity_details">
         </activity>
     </application>
 
