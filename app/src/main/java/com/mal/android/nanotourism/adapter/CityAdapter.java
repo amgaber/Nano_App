@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -13,6 +14,7 @@ import com.mal.android.nanotourism.MainActivity;
 import com.mal.android.nanotourism.R;
 import com.mal.android.nanotourism.backend.OnItemClickListener;
 import com.mal.android.nanotourism.model.City;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +27,7 @@ public class CityAdapter  extends RecyclerView.Adapter<CityAdapter.CustomViewHol
 
     private final Context mContext;
     private final List<String> CityItemList;
+    private final ArrayList<String> cityImage;
 
     private OnItemClickListener onItemClickListener;
 
@@ -36,8 +39,9 @@ public class CityAdapter  extends RecyclerView.Adapter<CityAdapter.CustomViewHol
         this.onItemClickListener = onItemClickListener;
     }
 
-    public CityAdapter(Context context, List<String> CityItemList) {
+    public CityAdapter(Context context, List<String> CityItemList, ArrayList<String> cityImage) {
         this.CityItemList = CityItemList;
+        this.cityImage=cityImage;
         this.mContext = context;
     }
 
@@ -61,6 +65,15 @@ public class CityAdapter  extends RecyclerView.Adapter<CityAdapter.CustomViewHol
 
         //Setting text view title
         customViewHolder.textView.setText(CityItemList.get(i));
+
+        if (cityImage != null) {
+            Picasso.with(mContext).load(cityImage.get(i)).centerCrop().resize(150, 150)
+                    .placeholder(R.drawable.abc_ic_star_black_36dp)
+                    .error(R.drawable.abc_ic_star_black_36dp).into(customViewHolder.photo);
+        }else {
+            
+            customViewHolder.photo.setVisibility(View.INVISIBLE);
+        }
 //        customViewHolder.textView.setOnClickListener(listener);
         customViewHolder.rlRow.setOnClickListener(listener);
     }
@@ -73,12 +86,14 @@ public class CityAdapter  extends RecyclerView.Adapter<CityAdapter.CustomViewHol
     class CustomViewHolder extends RecyclerView.ViewHolder {
 
         private final RelativeLayout rlRow;
+        private final ImageView photo;
         protected TextView textView;
 
         public CustomViewHolder(View view) {
             super(view);
             this.textView = (TextView) view.findViewById(R.id.textView);
             this.rlRow=(RelativeLayout) view.findViewById(R.id.rlRow);
+            this.photo=(ImageView) view.findViewById(R.id.photo);
         }
     }
 }

@@ -13,13 +13,8 @@ import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.mal.android.nanotourism.adapter.CityAdapter;
 import com.mal.android.nanotourism.backend.OnItemClickListener;
-import com.mal.android.nanotourism.model.City;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 /**
  * Created by toshiba1 on 11/25/2016.
@@ -110,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         //using recycler adapter with gridview
-        CityAdapter cityListadapter = new CityAdapter(this, cityTitle);
+        CityAdapter cityListadapter = new CityAdapter(this, cityTitle, null);
         cityrecyclerView.setAdapter(cityListadapter);
         cityListadapter.notifyDataSetChanged();
 

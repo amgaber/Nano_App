@@ -32,7 +32,6 @@ public class CityActivityDetails extends AppCompatActivity {
         titleTextView.setText(title);
         descTextView.setText(desc);
 
-
         Picasso.with(this.getApplication()).load(urlImage).centerCrop().resize(150, 150)
                 .placeholder(R.drawable.abc_ic_star_black_36dp)
                 .error(R.drawable.abc_ic_star_black_36dp).into(imageView);

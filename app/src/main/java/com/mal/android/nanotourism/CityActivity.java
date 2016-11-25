@@ -29,6 +29,7 @@ public class CityActivity extends AppCompatActivity{
     private Firebase fire_ref_city;
     private RecyclerView cityrecyclerViewCity;
     private ArrayList<String> cityPlace;
+    private ArrayList<String> cityImage;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -97,12 +98,18 @@ public class CityActivity extends AppCompatActivity{
         if (null == cityPlace) {
             cityPlace = new ArrayList<String>();
         }
+        //Initialize arrayList if null
+        if (null == cityImage) {
+            cityImage = new ArrayList<String>();
+        }
+        cityImage.add(img);
 
         cityPlace.add(name);
 
 
+
         //using recycler adapter with gridview
-        CityAdapter cityListadapter = new CityAdapter(this, cityPlace);
+        CityAdapter cityListadapter = new CityAdapter(this, cityPlace,cityImage);
         cityrecyclerViewCity.setAdapter(cityListadapter);
         cityListadapter.notifyDataSetChanged();
 
